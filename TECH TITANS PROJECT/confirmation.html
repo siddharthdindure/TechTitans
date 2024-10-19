@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <img id="car" src="car.png" alt="Car Animation"> 
+    <header>
+        <h1>Ride Confirmation</h1>
+    </header>
+
+    <main>
+        <section class="confirmation-details">
+            <h2>Your Ride Details</h2>
+            <div id="ride-details">
+               
+            </div>
+            <button onclick="goToHome()">Go to Home</button>
+            <button onclick="goToMyRides()">View My Rides</button>
+            <button id="sos-button" onclick="sendSOS()">SOS</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Carpooling App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function goToHome() {
+            window.location.href = 'index.html';
+        }
+
+        function goToMyRides() {
+            window.location.href = 'my-rides.html';
+        }
+
+        function sendSOS() {
+           
+            alert("SOS Alert sent to your emergency contact!");
+        }
+
+        
+        window.onload = function() {
+            const rideDetails = JSON.parse(localStorage.getItem('rideDetails'));
+            if (rideDetails) {
+                document.getElementById('ride-details').innerHTML = `
+                    <p>Driver Name: ${rideDetails.driverName}</p>
+                    <p>Pickup Location: ${rideDetails.pickup}</p>
+                    <p>Drop Location: ${rideDetails.drop}</p>
+                    <p>Date: ${new Date(rideDetails.date).toLocaleDateString()}</p>
+                    <p>Available Seats: ${rideDetails.seats}</p>
+                    <p>Emergency Contact: ${rideDetails.emergencyContact}</p>
+                `;
+            } else {
+                document.getElementById('ride-details').innerHTML = `<p>No ride details found.</p>`;
+            }
+        }
+    </script>
+</body>
+
+</html>
+

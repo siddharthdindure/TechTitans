@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namma Carpooling</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #000000;
+            color: white;
+            padding: 20px;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .header-title {
+            flex: 1; 
+            text-align: center; 
+        }
+
+        nav {
+            margin-left: auto; 
+        }
+
+        nav a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer; 
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; 
+        }
+
+        .option {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .option h2 {
+            color: #333;
+        }
+
+        .option button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .option button:hover {
+            background-color: #45a049;
+        }
+
+        #car {
+            position: absolute;
+            top: 95px; 
+            width: 50px; 
+            animation: moveCar 4s linear infinite; 
+        }
+
+        @keyframes moveCar {
+            0% {
+                left: -100px; 
+            }
+
+            100% {
+                left: 100%; 
+            }
+        }
+
+        .about-us {
+            display: none; 
+            padding: 20px;
+            background-color: #ffffff;
+            margin: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #000000;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="car" src="car.png" alt="Car Animation"> 
+    <header>
+        <div class="header-title">
+            <h1>Namma Carpooling</h1>
+            <p>Share rides and save money!</p>
+        </div>
+        <nav>
+            <a href="#" onclick="toggleAboutUs()">About Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="option">
+            <h2>Offer a Ride</h2>
+            <button onclick="window.location.href='ride-offer.html'">Offer Ride</button>
+        </div>
+        <div class="option">
+            <h2>Take a Ride</h2>
+            <button onclick="window.location.href='available-rides.html'">Take Ride</button>
+        </div>
+    </div>
+
+    <div class="about-us" id="about-us">
+        <h2>About Us</h2>
+        <p>We are a community-driven platform aimed at providing convenient and affordable carpooling services. Our goal is to reduce traffic congestion and carbon emissions while fostering connections among commuters.</p>
+        <p>Our service not only helps in saving money but also promotes sustainability by encouraging shared transportation. Join us in making a difference in our community!</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Carpooling App. All rights reserved.</p>
+        <p><a href="ride-history.html" style="color: white; text-decoration: underline;">View Ride History</a></p>
+    </footer>
+
+    <script>
+        function toggleAboutUs() {
+            const aboutUsSection = document.getElementById('about-us');
+            
+            
+            if (aboutUsSection.style.display === 'none' || aboutUsSection.style.display === '') {
+                aboutUsSection.style.display = 'block';
+            } else {
+                aboutUsSection.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
+
